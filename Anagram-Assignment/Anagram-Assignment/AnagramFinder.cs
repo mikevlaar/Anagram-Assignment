@@ -10,27 +10,6 @@ namespace Anagram_Assignment
     {
         Dictionary<String, List<String>> anagrams;
 
-        /* This method searches for all anagrams in the given wordList.
-         * @param wordList :The list of words to search through.
-         */
-        public void searchAnagrams(List<String> wordList)
-        {
-            anagrams = new Dictionary<String, List<String>>();
-
-            int i = wordList.Count - 1;
-
-            while (wordList.Count != 0) {
-                string key = sortStringByAlfabeticalOrder(wordList[i]);
-
-                addAnagramToDictionary(key, wordList[i]);
-                wordList.Remove(wordList[i]);
-
-                i--;
-            }
-            
-            printAnagrams(anagrams);
-        }
-
         /* This method searches for all anagrams of the input in the given wordList.
          * @param wordList :The list of words to search through.
          * @param input :The word that is entered.
@@ -90,15 +69,12 @@ namespace Anagram_Assignment
         {
             foreach (List<String> ana in anagrams.Values)
             {
-                if (ana.Count >= 2)
+                Console.WriteLine("\nNumber of Occurrences: " + ana.Count);
+                Console.WriteLine("Unique values: ");
+                List<String> duplicateFreeAna = ana.Distinct().ToList();
+                for (int j = 0; j < duplicateFreeAna.Count; j++)
                 {
-                    Console.WriteLine("\nNumber of Occurrences: " + ana.Count);
-                    Console.WriteLine("Unique values: ");
-                    List<String> duplicateFreeAna = ana.Distinct().ToList();
-                    for (int j = 0; j < duplicateFreeAna.Count; j++)
-                    {
-                        Console.WriteLine(duplicateFreeAna[j]);
-                    }
+                    Console.WriteLine(duplicateFreeAna[j]);
                 }
             }
         }

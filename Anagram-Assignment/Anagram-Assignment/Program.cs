@@ -15,23 +15,10 @@ namespace Anagram_Assignment
         {
             Program program = new Program();
 
-            program.searchAllAnagrams();
+            Console.WriteLine(program.text);
             program.searchAnagramsOfAWord();
 
             Console.ReadLine();
-        }
-
-        /* This method searches all anagrams occurring in the text.
-         */
-        public void searchAllAnagrams()
-        {
-            TextSplitter textSplitter = new TextSplitter();
-            AnagramFinder anagramFinder = new AnagramFinder();
-
-            List<string> listOfWords = textSplitter.splitToLower(text);
-
-            Console.WriteLine("All anagrams in the text are: ");
-            anagramFinder.searchAnagrams(listOfWords);
         }
 
         /* This method searches the anagrams of a word entered by the user.
