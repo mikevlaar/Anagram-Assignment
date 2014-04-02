@@ -56,6 +56,8 @@ namespace Anagram_Assignment
             {
                 Console.WriteLine("Too many words were entered!");
             }
+
+            searchAnagramsOfAWord();
         }
     }
 }
